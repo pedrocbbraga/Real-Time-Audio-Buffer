@@ -117,7 +117,8 @@ static int paStreamCallback(const void* inputBuffer, void* outputBuffer,
     float* out = (float*) outputBuffer;
 
     for (unsigned long i = 0; i < framesPerBuffer; i++) {
-        for (int j = 0; j < CHANNELS; j++) {
+        for (int j = 0; j < CHANNELS; j++)
+        {
             int idx = i * CHANNELS + j;
 
             if (circBufferHasData())
@@ -167,7 +168,8 @@ int main()
     }
 
     // Attempt at pre-populating the circular buffer to avoid the initial spike/glitch, needs improvement
-    for (int i = 0; i < 4 && !eof; ++i) {
+    for (int i = 0; i < 4 && !eof; ++i)
+    {
         populateCircularBuffer(&wav);
     }    
 
